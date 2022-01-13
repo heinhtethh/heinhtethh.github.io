@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <h1>Students Information Form</h1>
+    <form action="save.php" method="get">
+        <label for="name">Name</label>
+        <input type="text" name="stu_name" id="name" placeholder="Enter your name" required>
+        <br><br>
+        <label for="email">Email</label>
+        <input type="email" email="stu_email" id="email" placeholder="Enter your email" required>
+        <br><br>
+        <label for="passwordd">Password</label>
+        <input type="password"  name="stu_password" id="passwordd" disabled>
+        <br><br>
+        <label for="phone">Phone</label>
+        <input type="number" name="stu_phone" id="phone" value="09782200129"  readonly>
+        <br><br>
+        <label for="passport">Passport</label>
+        <input type="file" accept="image/*" name="stu_passport" id="passwort">
+        <br><br>
+        <select name="stu_year" id="year">
+               <option value="First">First year</option>
+               <option value="Second">Second year</option>
+               <option value="Third">Third year</option>
+        </select>       
+       <br><br>
+        <label for="dob">Date of Birth</label>
+        <input type="date" name="stu_dob" id="dob">
+        <br><br>
+        <label for="">Gender</label><br>
+        <input type="radio" name="gender" id="male" value="male"><label for="male">Male</label>
+        <input type="radio" name="gender" id="female" value="female"><label for="female">Female</label>
+        <input type="radio" name="gender" id="other" value="other"><label for="other">Other</label>
+        <br><br>
+        <label for="">Hobby</label><br>
+        <input type="checkbox" name="travelling" id="travel" value="travelling"><label for="travel">Travelling</label>
+        <input type="checkbox" name="reading" id="reading" value="reading"><label for="reading">Reading</label>
+        <input type="checkbox" name="listen to music" id="music" value="listen to music"><label for="listen to music">Listen to music</label>
+        <br><br>
+        <label for="address">Address</label>
+        <textarea name="stu_address" id="address" cols="30" rows="10"></textarea>
+        <br><br>
+        <input type="time" name="" id="">
+        <input type="datetime_local" name="" id="">
+        <input type="color" name="" id="">
+        <input type="range" name="" id="">
+     <br><br>
+        <button type="submit"></button> Save</button>
+    </form>
+</body>
+</html>

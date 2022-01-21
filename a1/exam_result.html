@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Exam Result</h1>
+    <form name="examForm">
+        <label for="p">Python</label>
+        <input type="number" name="python" id="p" required placeholder="Enter a Python mark"><br><br>
+        <label for="k">Kotlin</label>
+        <input type="number" name="kotlin" id="k" required placeholder="Enter a Kotlin mark"><br><br>
+        <label for="j">Java</label>
+        <input type="number" name="java" id="j" required placeholder="Enter a Java mark"><br><br>
+        <label for="js">JavaScript</label>
+        <input type="number" name="javaScript" id="js" required placeholder="Enter a Javascript mark"><br><br>
+        <label for="php">PHP</label>
+        <input type="number" name="php" id="php" required placeholder="Enter a PHP mark"><br><br>
+
+        <button type="button" onclick="result()">Result</button>
+    </form>
+
+   <script>
+        function result() {
+            let p = document.examForm.python.value;
+            console.log(p);
+            let k = document.examForm.kotlin.value;
+            console.log(k);
+            let j = document.examForm.java.value;
+            console.log(j);
+            let js = document.examForm.javaScript.value;
+            console.log(js);
+            let php = document.examForm.php.value;
+            console.log(php);
+
+            if ( p >= 81 || j >= 81 || k >= 81 && js >= 81 && php >= 81) {
+                 document.write("<h1>This student passed the exam with honors!</h1>");
+            } else if  ( p >= 50 && j >= 50 && k >= 50 && js >= 50 && php >= 50) {
+                document.write ("<h1> This student passed the exam!</h1>");
+            } else {
+                document.write ( "<h1> This student failed the exam!")
+            }
+        }
+    </script>
+</body>
+</htm

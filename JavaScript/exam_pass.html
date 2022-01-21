@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Exam Result</h1>
+    <form name="myForm">
+        <label for="c">Turbo c</label>
+        <input type="number" name="c" id="c" required placeholder="Enter Turbo c"><br><br>
+        <label for="java">Java</label>
+        <input type="number" name="java" id="java" required placeholder="Enter Java"><br><br>
+        <label for="js">JavaScript</label>
+        <input type="number" name="JavaScript" id="js" required placeholder="Enter JavaScript"><br><br>
+        <button type="button" onclick="result()">Result</button>
+    </form>
+
+    <script>
+        function result() {
+            let c = document.myForm.c.value;
+            console.log(c);
+            let java = document.myForm.java.value;
+            console.log(java);
+            let js = document.myForm.JavaScript.value;
+            console.log(js);
+
+            if( c >= 50 && java >= 50 && js >= 50) {
+                 document.write("<h1>This student is pass!</h1>");
+            }else{
+                document.write("<h1> This students is fail!</h1>")
+            }
+        }
+    </script>
+</body>
+</html>

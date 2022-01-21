@@ -37,14 +37,17 @@
             let php = document.examForm.php.value;
             console.log(php);
 
-            if ( p >= 81 || j >= 81 || k >= 81 && js >= 81 && php >= 81) {
-                 document.write("<h1>This student passed the exam with honors!</h1>");
-            } else if  ( p >= 50 && j >= 50 && k >= 50 && js >= 50 && php >= 50) {
-                document.write ("<h1> This student passed the exam!</h1>");
-            } else {
-                document.write ( "<h1> This student failed the exam!")
+            if ( p < 50 || j < 50 || k < 50 || js < 50 || php < 50 ) {
+                document.write ( "<h1> This student failed the exam!");
             }
+            else if ( p >= 81 || j >= 81 || k >= 81 && js >= 81 && php >= 81) {
+                 document.write("<h1>This student passed the exam with honors!</h1>");
+            } else {
+                document.write ("<h1> This student passed the exam!</h1>");
+            }
+               
         }
+        
     </script>
 </body>
-</htm
+</html>

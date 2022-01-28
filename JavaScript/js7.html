@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function funName() {
+            document.write('<h3> Hello World</h3>');
+                
+        }
+        funName();
+        
+        function result (num1,num2) {
+            let res = num1 + num2;
+            document.write(`<h3>${res}</h3>`);
+        }
+        result(120,56);
+        function subResult(num1=12, num2=32){
+            let subres = num2 - num1;
+            document.write(`<h3>${subres}</h3>`);
+        }
+
+        subResult();
+        
+        let laptop = {
+            brand:'apple',
+            type:'M1',
+            price:250000,
+        };
+        console.log(laptop);
+        console.log(laptop.brand);
+        console.log(laptop["price"])
+
+    </script>
+</body>
+</html>

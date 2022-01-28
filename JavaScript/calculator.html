@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <form action="">
+         <label for="num1">Number One :</label>
+         <input type="text" name="nu1" id="num1"><br><br>
+         <label for="num2">Number Two :</label>
+         <input type="text" name="nu2" id="num2"><br><br>
+         <label for="res">Result :</label>
+         <input type="text" name="result" id="res" readonly><br><br> 
+         <button onclick="add()" type="button">Add</button>
+    </form>
+
+    <script>
+        function formValidation() {
+            let number1 = document.querySelector('#num1').value;
+            let number2 = document.querySelector('#num2').value;
+            let num1 = document.querySelector('#num1');
+            let num2 = document.querySelector('#num2');
+            let num1_err = document.querySelector('#num1_err');
+            let num2_err = document.querySelector('#num2_err');
+        }
+    </script>
+</body>
+</html>

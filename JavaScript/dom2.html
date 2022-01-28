@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header {
+            color: red ;
+        }
+    </style>
+</head>
+<body>
+    <h1 onclick="change_color()" id="h1">Create HTML Element</h1>
+    <button type="button" onclick="click_event()" >Create</button>
+   <br><br>
+   <input type="text" name="name" id="name">
+   <button type="button" onclick="adding()">Add</button>
+
+   <ul id="ul">
+       <li>Apple</li>
+   </ul>
+
+
+    <script>
+        function click_event() {
+            let h3 = document.createElement('h3');
+            console.log(h3);
+            h3.innerHTML = 'Create h3 element.';
+            document.body.appendChild(h3);
+
+        }
+
+        function adding() {
+           let name = document.querySelector('#name').value;
+           console.log(name);
+           let ul = document.querySelector('#ul');
+           console.log(ul);
+           let li = document.createElement('li');
+           li.innerHTML = name;
+           console.log(li);
+           ul.appendChild(li);
+        }
+
+        function change_color() {
+            let h1 = document.querySelector('#h1');
+            let attr = h1.getAttribute('class');
+            if(attr){
+                h1.removeAttribute('class');
+            }else{
+                h1.setAttribute('class','header');
+            }
+        }
+
+    </script>
+</body>
+</html>

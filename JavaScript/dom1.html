@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DOM Selector</h1>
+    <h3 id = "lg"> language </h3>
+    <p class="lang">HTML</p>
+    <p class="lang">JavaScript</p>
+    <p class="lang">CSS</p>
+    <h2 id="add"></h2>
+    <h2 id="add1"></h2>
+    <button type="button" onclick="language()">Click</button>
+
+    <script>
+        function language() {
+            let lg = document.getElementById('lg');
+            console.log(document.getElementById('lg').innerHtML);
+            console.log(lg.innerText);
+
+            let add = document.getElementById('add');
+            
+            let add1 = document.getElementById('add1');
+            console.log(add);
+            console.log(add1);
+            add.innerHTML = '<i> This is Text</i>';
+            add1.innerText = '<i> This is Text</i>';
+
+            let class_lg = document.getElementsByClassName('lang');
+            console.log(class_lg);
+            console.log(class_lg[1]);
+            console.log(class_lg[1].innerText);
+
+            let name_lg = document.getElementsByTagName('h2');
+            console.log(name_lg);
+            console.log(name_lg[1]);
+            console.log(name_lg[1].innerText);
+
+
+            let q_lg = document.querySelector('#lg');
+            console.log(q_lg);
+
+            let q_lang = document.querySelector('.lang');
+            console.log(q_lang);
+
+            let q_name = document.querySelector('h2');
+            console.log(q_name);
+
+            let all = document.querySelectorAll('.lang');
+            console.log(all);
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+
+    <style>
+        #bg{
+            height: 214px;
+            background-image: url('bg.jpg');
+            background-repeat: repeat;
+            background-position: center;
+
+        }
+        #train{
+            position: relative;
+            margin-top: -125px;
+        }
+    </style>
+</head>
+<body>
+    <div id="bg"></div>
+    <img src="Js2.gif" alt="" width="300" height="131" id="train">
+    <br><br><br>
+    <button type="button" onclick="startTrain()">Start</button>
+
+
+
+  <script>
+     function startTrain(){
+               let train = document.querySelector("#train");
+
+              let start = Date.now();
+              console.log(start);
+                setInterval(function(){
+                    let timePassed = Date.now()-start;
+                    console.log(Date.now);
+
+                },20)
+       }
+  </script>
+   
+
+</body>
+</html>

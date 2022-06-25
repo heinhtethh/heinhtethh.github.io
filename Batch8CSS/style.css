@@ -1,0 +1,220 @@
+h2{
+    /*color: red;*/
+    /*color: #ff0000;*/
+    /*color: #f00;*/
+    color: rgb(255,0,0);
+    text-transform: uppercase;
+    text-align: center;
+}
+/*universal selector*/
+*{
+    margin: 0px;
+    padding: 0px;
+   /* color: red;*/
+}
+/*tag/element seletor*/
+h1{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 20px;
+    color: red;
+}
+/*attribute selector*/
+a[target="_blank"]{
+    color: green;
+    text-decoration: none;
+}
+/*id selector*/
+#idselector{
+    color: green;
+    text-indent: 50px;
+}
+/*class selector*/
+.classselector{
+    color: brown;
+    text-indent: 50px;
+    line-height: 50px;
+    word-spacing: 20px;
+    letter-spacing: 10px;
+}
+/*decendent Selector*/
+.desc a{
+    color:red;
+
+}
+/*Child Selector*/
+.child > a{
+    color:green;
+
+}
+/*pseudo selector*/
+
+a:link{
+    color:red;
+    letter-spacing: 10px;
+
+}
+a:hover{
+    color:green;
+}
+a:active{
+    color: yellow;
+    letter-spacing: 20px;
+}
+a:visited{
+    color: pink;
+}
+
+/*Target*/
+:target{
+    border: 1px solid black;
+    text-indent: 5opx;
+    word-spacing: 20px;
+    line-height: 30px;
+}
+
+.borderone{
+    border: 10px dotted red;
+}
+.bordertwo{
+    border-left:5px solid green;
+}
+.borderstyle{
+    border-style: dotted;
+}
+.stylemix{
+   /* border-style: dashed solid double dotted;
+   T / R / B / L*/
+  /* border-style: dashed solid double;
+    T / L&R / B*/
+   border-style: double dashed;
+   /* T&B / L&R*/
+
+}
+.borderwitdh{
+    border-width: 10px 50px 2px 30px;
+    border-style: solid;
+}
+/*margin*/
+.margin{
+    margin: 50px;
+    margin-top: 100px;
+    border: 1px solid black;
+
+  }
+/*padding*/
+.pading{
+   /* padding: 50px;*/
+   padding-left: 30px;
+    border: 1px solid black;
+}
+.inline{
+    border: 1px solid red;
+    width: 400px;
+    display: inline-block;
+}
+.block{
+    border: 1px solid green;    
+    width: 400px;
+    display:inline-block;
+}
+/*float*/
+.floatleft img{
+    width: 30%;
+    float: left;
+
+}
+.clear{
+    clear: both;
+}
+.floatright img{
+    width: 30%;
+    float: right;
+}
+/*grid*/
+.gridone div,.gridtwo div,.gridthree div,.gridfour div,.gridfive div{     /*i have to retry*/
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+.gridone,.gridtwo,.gridthree,.gridfour,.gridfive{
+    display: grid;
+    grid-template-columns: auto auto auto ;
+    
+}
+.gridtwo{
+    grid-column-gap: 40px;
+
+}
+.gridthree{
+    grid-row-gap: 40px;
+}
+.gridfour{
+    /*grid-column-gap: 50px;*/
+   /* grid-row-gap: 40px;*/
+    grid-gap: 50px;
+}
+.colunmadd{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.rowadd{
+
+    grid-row-start: 1;
+    grid-row-end: 4;
+}
+
+/*position*/
+.relativeparent{
+    width: 1000px;
+    height: 600px;
+    border: 1px solid red;
+
+}
+.relative{
+    width: 500px;
+    height: 200px;
+    border: 1px solid yellow;
+    position: relative;   /*position is not use in margin and padding  Do began from div html tag*/
+    left: 100px;
+   /* bottom: ;
+    right: ;*/
+    top: 100px;
+}
+.absoluteparent{
+    border: 1px solid black;
+    width: 900px;
+    height: 600px;
+   /* position: relative; /*if you want to do from div tag*/
+}
+.absolute{     
+    border: 1px solid green;
+    width: 500px;
+    height: 400px;
+    position: absolute;   /*Do began from docunment*/
+    top: 100px;
+    left: 500px;
+
+
+
+}
+.fixed{
+    position: fixed;     /*work begn from document */
+    top: 100px;
+    left: 1100px;
+}
+
+/*fonts*/
+.online{
+    font-family: 'Dancing Script', cursive;
+}
+
+/*ofline*/
+@font-face {
+    font-family: a;
+    src: url(Lobster/Lobster-Regular.ttf);
+}
+.offline{
+    font-family: a;
+}

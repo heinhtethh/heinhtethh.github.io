@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <form action="" class="form">
+        <input type="text" name="username" id="name" placeholder="Name">
+        <br><br>
+        <input type="number" name="age" id="age" placeholder="Age">
+        <br><br>
+        
+        <input type="radio" name="status" id="single" value="0" checked><label for="single">Single</label>
+        <input type="radio" name="status" id="married" value="1"><label for="married">Married</label>
+        <br><br>
+
+        <input type="text" name="spouse" id="spouse" placeholder="Spouse">
+        <br><br>
+        <input type="submit" value="Save" id="save" >
+        
+    </form>
+    
+
+    <script src="jquery.min.js"></script>
+
+    <script>
+        $(function(){
+            $("#spouse").hide();
+            
+            $("#single").on("click",function(){
+                $("#spouse").hide();
+            })
+            $("#married").on("click",function(){
+                $("#spouse").show();
+            })
+        $("form").on("submit",function(){
+            event.preventDefault();
+            var name = $("input[name='username']").val()
+            var age = $("input[name='age']").val()
+            var status = $("input[name='status']:checked").val()
+
+            //console.log(`${name},${age},${status}`)
+
+            var data = "";
+            if(status == 1){
+                var spouse = $("input[name='spouse']").val()
+                data += `My name is ${name} and ${age} years. His supose name is ${spouse}`;
+            }else if(status == 0){
+                data += `My name is ${name} and ${age} years. He is single`
+            }
+            
+            alert(data)
+        })
+           
+        })
+    </script>
+</body>
+</html>

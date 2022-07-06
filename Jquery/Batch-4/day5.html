@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            color:red;
+        }
+    </style>
+    
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia ipsam rem odit? Earum aperiam dolorum aliquam laborum consequuntur eos, aut incidunt id magni animi sequi, in corporis dicta officia cupiditate ratione reprehenderit recusandae, temporibus rerum eveniet porro voluptatum totam. Iure, perspiciatis. Earum voluptates ut commodi, pariatur hic totam aliquid quis!</p>
+    <br>
+
+    <p id="myp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae nostrum et at sit consectetur minus veniam optio sint similique beatae corrupti cum quas, deleniti nesciunt magnam dolores velit officia, perferendis animi temporibus, cupiditate eligendi! Eaque, consequatur sint dolorum accusamus quisquam incidunt pariatur, odio, veritatis ab et quibusdam commodi in aliquid!</p>
+
+    <h1>Hello JQ Effects</h1>
+
+    <div style="width: 100px; height: 100px; background-color: red; position: relative;" id="mydiv"></div>
+    <br>
+
+
+   
+    <button id="hidebtn">Hide</button>
+    <button id="showbtn">Show</button>
+    <button id="togglebtn">Toggle</button>
+    <button id="fadetobtn">FadeTo</button>
+    <button id="fadeinbtn">FadeIn</button>
+    <button id="fadeoutbtn">FadeOut</button>
+    <button id="slidedownbtn">SlideDown</button>
+
+    <button id="movebtn">Move</button>
+
+    <button id="chaining">Chaining</button>
+
+    <button id="mybtn">Add or Remove</button>
+    <button class="mybtn">Remove</button>
+    
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function (param){
+            $("#hidebtn").on("click",function (param){
+               myp.hide(5000);
+            })
+
+            $("#showbtn").on("click",function (param){
+                myp.show("fast");
+            })
+
+            
+            $("#togglebtn").on("click",function (param){
+                $("p").toggle("fast");
+            })
+
+           
+            $("#fadeoutbtn").on("click",function (param){
+                $("p").fadeOut();
+            })
+
+            $("#fadeinbtn").on("click",function (param){
+                $("p").fadeIn();
+            })
+
+
+            
+            $("#fadetobtn").on("click",function (param){
+                $("p").fadeTo("slow", 0.4);
+            })
+
+
+            $("#slidedownbtn").on("click",function (param){
+                $("p").slideDown("slow");
+            })
+
+            $("#movebtn").on("click",function (param){
+                $("#mydiv").animate({
+                    left: '250px'
+                });
+            })
+
+            $("#chaining").on("click",function(param){
+                $("p.myp").css("color","red") .slideUp(2000) .slideDown(2000) ;
+              }) //the same
+
+
+            $("#mybtn").on("click",function(param){
+                var h1 = $("h1")
+                if(!h1.hasClass("red")){
+                h1.addClass("red"); // style{.red}return call
+                }
+            })  
+
+           
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2 - Selector</title>
+</head>
+<body>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis eveniet cupiditate eaque hic deleniti praesentium aliquid dolorem sint eligendi ea enim ipsum, in quo ullam fuga, reiciendis error iusto atque maiores rerum voluptas id alias! Consequatur, quibusdam possimus consequuntur corporis voluptate error facilis, modi deleniti eligendi in magni iusto quas!</p>
+    <p>This is second p tag</p>
+
+    <button id="mybtn">Click</button>
+
+    <h2 class="name">Hein Htet Aung</h2>
+
+    <p class="name">This is class selector from two tag</p>
+
+    
+        <input type="text" name="first_name" id="name">
+    
+        <button type="button">Submit</button>
+
+    <ul>
+        <li>first year</li>
+        <li>second year</li>
+        <li>third year</li>
+    </ul>
+ 
+    <section id="contact">
+        <ul class="people">
+            <li>Ma Ma</li>
+            <li>Maung Maung</li>
+            <li>Mya Mya</li>
+        </ul>
+    
+    </section>
+
+    <br><br>
+    <table border="1" cellspacing="0" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>DathofBath</th>
+                <th>Join class</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>hein htet</th>
+                <th>77200</th>
+                <th>level3</th>
+            </tr>
+            <tr>
+                <th>hein htet</th>
+                <th>77200</th>
+                <th>level3</th>
+            </tr>
+            <tr>
+                <th>hein htet</th>
+                <th>77200</th>
+                <th>level3</th>
+            </tr>
+        </tbody>
+    </table>
+    
+    <script src="jquery.min.js"></script>
+
+    <script>
+        $(function(){
+            //Element selector
+            var p= $("p");
+            console.log(p);
+
+            //class selector
+            var c = $(".name");
+            console.log(c);
+
+            //id selector
+            var d = $("#mybtn");
+            console.log(d);
+            if(d.length){
+                console.log("Have Button")  // if you check condition
+            }
+
+            //with element and class 
+            var ec = $("p.name");
+            console.log(ec);
+
+           //list selector from ul list
+            var li = $("ul li:first");
+            console.log(li);
+
+            //Selector 
+            var se = $("#contact ul.people li");
+            console.log(se);
+
+            //input selector
+            var name = $("input[name='first_name']")
+            console.log(name);
+
+            //button
+            var bu = $(":button")
+            console.log(bu);
+
+            //table selector
+            var ta = $("tr:even")
+            console.log(ta);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add or Remove</title>
+    <style>
+        .active{
+            color: red;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <p class="myp">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi explicabo nam deserunt ullam ipsam non incidunt quis totam, iure sed maiores corporis veniam ducimus voluptatum, eveniet corrupti? Possimus odit eius vitae nostrum dolorem nemo dolor sit facilis ullam dolores sequi quae itaque veniam, expedita nam tempora maxime rerum minima ratione?</p>
+
+    <button class="addbtn">Add</button>
+    <button class="removebtn">Remove</button>
+    <!--script-->
+
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function(){
+            $(".addbtn").on("click",function(){
+                var myp = $(".myp")
+                myp.addClass("active")
+            })
+
+            $(".removebtn").on("click",function(){
+                var myp = $(".myp")
+                myp.removeClass("active")
+            })
+        })
+    </script>
+</body>
+</html>

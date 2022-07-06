@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Products</title>
+
+    <style>
+
+        .myproduct{
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            grid-gap: 50px;
+            margin: 50px 150px;
+            padding-left: 150px;
+            text-align: center;
+        }
+        h2{
+            text-align: center;
+        }      
+        .myproduct div button{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="content" id="product">
+        <h2>My Products</h2>
+
+        <div class="myproduct">
+            <div class="item">
+                <img src="../Batch-4/images/camera.jpg" alt="" width="200" height="200">
+                <p>Product One</p>
+                <button class="button">Add to cart</button>
+
+            </div>
+
+            <div class="item">
+                <img src="../Batch-4/images/earphone.jpg" alt="" width="200" height="200">
+                <p>Product Two</strong></p>
+                <button class="button">Add to cart</button>
+
+            </div>
+
+            <div class="item">
+                <img src="../Batch-4/images/smartwatch.jpg" alt="" width="200" height="200">
+                <p>Product Three</p>
+                <button class="button">Add to cart</button>
+
+            </div>
+        </div>
+    </div>    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>change function</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" name="name" id="name" placeholder="Name"><br><br>
+
+        <label for="">Hobbies:</label><br>
+        
+            <input type="checkbox" name="choice" id="travel" value="travelling" checked><label for="travel">Travelling</label>
+            <input type="checkbox" name="choice" id="reading" value="reading"><label for="reading">Reading</label>
+            <input type="checkbox" name="choice" id="music" value="listing to music"><label for="listen to music">Listen to music</label>
+        
+        <br><br>
+
+       
+        <input type="submit" value="Save" id="save">
+
+        <!--Script-->
+        <script src="jquery.min.js"></script>
+
+        <script>
+            $(function(){
+
+                $("form").on("submit",function(event){
+                      event.preventDefault();
+                      var name = $("input[name='name']").val()  
+                      var travel = $("#travel:checked").val()
+                      var reading = $("#reading:checked").val()
+                      var music = $("#music:checked").val()
+                      
+                      //console.log(`${name},${travel},${reading},${music}`)
+                   
+
+                    var data="";
+                    if(travel){
+                        data += ` ${travel}, `;
+                    }     
+                    if(reading){
+                        data += `${reading }`;
+                    }    
+                    if(music){
+                        data += ` and ${music}`;
+                    }    
+                    data = `My name is ${name} and my hobbies are ${data}`;
+                    
+                    alert(data);
+                })        
+                
+            })
+             
+        </script>
+    </form>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab</title>
+
+    <style>
+      ul.link-wapper{
+          list-style: none;
+          text-align: center;
+          margin: 20px;
+          padding: 0;
+      }
+
+      ul.link-wapper li{
+          display: inline-block;
+          padding: 10px;
+
+      }
+
+      ul.link-wapper li a{
+          text-decoration: none;
+          color: black;
+          padding: 10px;
+      }
+
+      ul.link-wapper li a.active{
+          text-decoration: none;
+          color: #0037ff;
+          border-bottom: 1px solid red;
+      }
+
+      .content{
+          max-width: 800px;
+          background-color: antiquewhite;
+          padding: 20px;
+          margin: 0 auto;
+          display: none;
+      }
+
+      .myshop{
+        display: flex;
+        justify-content: space-around;
+
+
+      }
+
+      /* for noti*/
+      .red{
+          color: red;
+      }
+    </style>
+    
+    <script src="jquery.min.js"></script>
+
+    <script>
+
+       $(function (param){
+           $(".content").first().slideDown();  //to show first content
+
+           $("ul.link-wapper li a").on("click",function (event){
+               var current_tab = $(this);
+               $("ul.link-wapper li a").removeClass('active');
+               current_tab.addClass('active');
+
+               $('.content').slideUp();
+               current_tab_href = current_tab.attr('href'); //#home
+               $(current_tab_href).slideDown(); //$(home)
+
+               event.preventDefault();
+           })
+      
+           $(".addtocart").on("click",function(){
+               //alert("ok")
+              var id = $(this).data("id");
+              var name = $(this).data("name");
+              var price = $(this).data("price");
+
+             var item = {
+                 id: id,
+                 name: name,
+                 price: price,
+                 qty: 1
+             }
+             //console.log(item)
+
+             var ls = localStorage.getItem("cart")
+             if(!ls){
+                var itemarr = new Array;
+             }else{
+                 var itemarr = JSON.parse(ls)  //to change javascript
+             }
+             
+             if(itemarr.length != 0){
+                var status = 0;
+                $.each(itemarr,function(i,v){
+                    if(v.id == id){
+                        v.qty++;
+                        status = 1;
+                        return false;
+                    }
+                })
+                if(status == 0){
+                    itemarr.push(item);
+                }
+             }else{
+                 itemarr.push(item)
+             }
+
+
+             //itemarr.push(item)
+             //console.log(itemarr)
+
+
+             var itemArrJson = JSON.stringify(itemarr) //to chane Json string
+             localStorage.setItem("cart",itemArrJson)
+             getData();
+          })
+          
+          getData();
+          function getData(){
+              var ls = localStorage.getItem("cart")
+              if(ls){
+                  var itemarr = JSON.parse(ls)
+                   var data = ""
+                  $.each(itemarr,function(i,v){
+                      data += `<tr>
+                               <td>${i+1}</td>
+                               <td>${v.name}</td>
+                               <td>${v.price}</td>
+                               <td>
+                                    <button class = "maxbutton" data-id="${i}">+</button>
+                                    ${v.qty}
+                                    <button class = "minbutton" data-id="${i}">-</button>
+                                       
+                               </td>
+                               
+                               <td>${v.price*v.qty}</td>
+
+                               <td>
+                                    <button class = "deletebutton" data-id="${i}">DEL</button>
+                                
+                               </td>
+                               </tr>`
+                  })
+                  $("#mycartbody").html(data)
+              }
+          }
+
+          $("#mycartbody").on ("click",".maxbutton" ,function(){
+              var index = $(this).data("id")
+              //alert(index)
+              var ls = localStorage.getItem("cart")
+             if(ls){
+                 var itemarr = JSON.parse(ls)  //to change javascript
+                 itemarr[index].qty++;
+                 var itemArrJson = JSON.stringify(itemarr) //to chane Json string
+                 localStorage.setItem("cart",itemArrJson)
+                 noti();
+                 getData();
+
+            }
+        })
+        
+            $("#mycartbody").on ("click",".minbutton" ,function(){
+              var index = $(this).data("id")
+              //alert(index)
+              var ls = localStorage.getItem("cart")
+             if(ls){
+                 var itemarr = JSON.parse(ls)  //to change javascript
+                 itemarr[index].qty--;
+                 var itemArrJson = JSON.stringify(itemarr) //to chane Json string
+                 localStorage.setItem("cart",itemArrJson)
+                 noti();
+                 getData();
+
+            }
+         })
+         $("#mycartbody").on ("click",".deletebutton" ,function(){
+              var index = $(this).data("id")
+              //alert(index)
+              var ls = localStorage.getItem("cart")
+             if(ls){
+                 var itemarr = JSON.parse(ls)  //to change javascript
+                 itemarr.splice(index,1);
+                 var itemArrJson = JSON.stringify(itemarr) //to chane Json string
+                 localStorage.setItem("cart",itemArrJson)
+                 noti();
+                 getData();
+
+            }
+         })
+         noti();
+         function noti(){
+            var ls = localStorage.getItem("cart")
+            if(ls){
+                 var itemarr = JSON.parse(ls)  //to change javascript
+                 var totalQty = itemarr.reduce((total,item) => item.qty + total, 0)
+                 console.log(totalQty)
+                 if(totalQty>0){
+                    $("#noti").html(`<span class="red">(${totalQty})</span>`)
+
+                }else{
+                    $("#noti").html(``)
+                }
+            }
+        }
+        })
+
+    </script>
+</head>
+<body>
+    <div class="tab">
+        <!--Nav-->
+        <ul class="link-wapper">
+            <li>
+                <a href="#home" class="active">Home</a> <!--active want to say that click home-->
+            </li>
+            <li>
+                <a href="#shop">Shop</a>
+            </li>
+            <li>
+                <a href="#about">About</a>
+            </li>
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+            <li>
+                <a href="#cart">Cart <strong id="noti"></strong></a>
+            </li>
+        </ul>
+
+        <!--Content-->
+       <div class="content" id="home">
+           <h2>Home Tab</h2>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus nulla animi itaque nesciunt similique. Atque totam veniam mollitia blanditiis cum, iure veritatis, quis dignissimos cupiditate culpa ea aut adipisci officia similique! Odio labore in corrupti. Doloremque maiores est mollitia maxime repellat quidem doloribus explicabo ipsam temporibus, itaque reprehenderit unde facere.</p>
+       </div>
+
+       <div class="content" id="shop">
+            <h2>Shop Tab</h2>
+
+            <div class="myshop">
+                <div class="item">
+                    <img src="images/shoes.jpg" alt="" width="200" height="200">
+                    <p>Item One <strong>-500</strong></p>
+                    <button class="addtocart" data-id="1001" data-name="Item One" data-price="500">Add to cart</button>
+
+                </div>
+
+                <div class="item">
+                    <img src="images/shoes.jpg" alt="" width="200" height="200">
+                    <p>Item Two  <strong>-1500</strong></p>
+                    <button class="addtocart"  data-id="1002" data-name="Item Two" data-price="1500">Add to cart</button>
+
+                </div>
+    
+                <div class="item">
+                    <img src="images/shoes.jpg" alt="" width="200" height="200">
+                    <p>Item Three  <strong>-2500</strong></p>
+                    <button class="addtocart"  data-id="1003" data-name="Item Three" data-price="2500">Add to cart</button>
+
+                </div>
+            </div>
+        </div>    
+
+       <div class="content" id="about">
+          <h2>About Tab</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus nulla animi itaque nesciunt similique. Atque totam veniam mollitia blanditiis cum, iure veritatis, quis dignissimos cupiditate culpa ea aut adipisci officia similique! Odio labore in corrupti. Doloremque maiores est mollitia maxime repellat quidem doloribus explicabo ipsam temporibus, itaque reprehenderit unde facere.</p>
+      </div>
+
+       <div class="content" id="contact">
+         <h2>Contact Tab</h2>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus nulla animi itaque nesciunt similique. Atque totam veniam mollitia blanditiis cum, iure veritatis, quis dignissimos cupiditate culpa ea aut adipisci officia similique! Odio labore in corrupti. Doloremque maiores est mollitia maxime repellat quidem doloribus explicabo ipsam temporibus, itaque reprehenderit unde facere.</p>
+       </div>
+
+        <div class="content" id="cart">
+          <h2>Cart Tab</h2>
+                <table border="1" cellpadding="10" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Qty</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mycartbody">
+
+                    </tbody>
+                </table>
+       </div>   
+</div>
+</body>
+</html>

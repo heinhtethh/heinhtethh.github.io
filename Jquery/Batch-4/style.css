@@ -1,0 +1,29 @@
+.form{
+    margin: 0;
+    padding: 0;
+}
+.form{
+    background-color: rgba(177, 157, 174, 0.933);
+    width: 200px;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: absolute; 
+    text-align: center;
+    padding-top: 15px;
+}
+#name{
+    border-radius: 10px;
+    background-color: #eaefef
+}
+#age{
+    border-radius: 10px;
+    background-color: #eaefef
+}
+#spouse{
+    border-radius: 10px;
+    background-color: #eaefef
+}
+#save{
+    border-radius: 15px;
+    background-color: #299665;
+}

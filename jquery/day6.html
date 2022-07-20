@@ -15,8 +15,20 @@
 <body>
     <p class="myp">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi explicabo nam deserunt ullam ipsam non incidunt quis totam, iure sed maiores corporis veniam ducimus voluptatum, eveniet corrupti? Possimus odit eius vitae nostrum dolorem nemo dolor sit facilis ullam dolores sequi quae itaque veniam, expedita nam tempora maxime rerum minima ratione?</p>
 
+    <form action="">
+        <input type="number" name="total" id="total"><br>
+        <input type="number" name="pay" id="pay"><br>
+        <input type="number" name="change" id="change"><br>
+        <input type="submit" value="OK"><br>
+    </form><br><br>
+
+    <a href="http://google.com" class="mya">Google</a>
+
     <button class="addbtn">Add</button>
     <button class="removebtn">Remove</button>
+    <button class="change">Change</button>
+    
+
     <!--script-->
 
     <script src="jquery.min.js"></script>
@@ -31,6 +43,25 @@
                 var myp = $(".myp")
                 myp.removeClass("active")
             })
+
+            $(".change").on("click",function(){
+                var mya = $(".mya")
+                var href = mya.attr("href")
+                console.log(href)
+                mya.attr("href","http://facebook.com")
+                //mya.text("Facebook")
+                mya.html("<i>Facebook<i>")
+            })
+
+            $("input[name=change]").on("focus",function(){
+                var total = $("input[name=total]").val()
+                var pay = $("input[name=pay]").val()
+                var change = pay - total
+                $(this).val()
+                //alert("Ok")//error
+
+            })
+            
         })
     </script>
 </body>

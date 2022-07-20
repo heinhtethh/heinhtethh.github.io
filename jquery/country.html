@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdeliver.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons">
+    <style>
+
+        body{
+            background-color:rgb(35, 32, 32)
+        }
+
+
+      label{
+        position: absolute;
+        width: 45px;
+        height: 22px;
+        right: 20px;
+        top: 20px;
+        border: 2px solid;
+        border-radius: 20px;
+       
+      }
+
+      label:before{
+        position: absolute;
+        content: "";
+        width: 20px;
+        height: 20px;
+        left: 1px;
+        top: 1px;
+        border-radius: 50%;
+        cursor: pointer;
+        background: #0000;
+        transition: 0.4s;
+      }
+      label.active:before{
+        left: 24px;
+        background: #fff;
+      }
+      body.night{
+        background: #0000;
+        color: #fff;
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Easy dark mode</h1>
+        <label for="" id="dark-change"></label>
+    </header>
+      
+    <script>
+        var content = document.getElementsByTagName('body')
+        var dark_mode = document.getElementById('dark-change')
+        dark_mode.addEventListener('click',function(){
+            dark_mode.classList.toggle('active')
+            content.classList.toggle('night')
+
+          
+        })
+    </script>
+</body>
+</html>

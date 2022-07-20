@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <style>
+             
+             :root {
+                    --body-bg: #fffffe;
+                    --other-bg: #e5e9ed;
+                    --box-shadow: #a2afb7;
+                    --span: #1d2730;
+                    --arrow-click: #2b3743;
+                    --other: #202c37;
+                    }
+
+            .dark_mode {
+                    --body-bg: #202c37;
+                    --other-bg: #2b3743;
+                    --box-shadow: #1d2730;
+                    --span: #a2afb7;
+                    --arrow-click: #e5e9ed;
+                    --other: #fffffe;
+                    }
+
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Country App</h1>
+        <button class="toogle"><i class="far fa-moon"></i>Dark Mode</button>
+    </div>
+
+    <script>
+        $(".toggle").on("click", function () {
+          if ($("body").hasClass("dark_mode")) {
+            $("body").removeClass("dark_mode");
+            $(".toggle").html(`<i class="far fa-moon"></i> Dark Mode`);
+          } else {
+            $("body").addClass("dark_mode");
+            $("h5.mode").html(`<i class="far fa-moon"></i> Light Mode`);
+          }
+        });
+      </script>
+</body>
+</html>

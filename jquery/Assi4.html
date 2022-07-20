@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+       * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-size: 15px;
+      }
+      
+      .mydiv{
+       
+        background-color: #ad99a7;
+        width: 800px;
+        height: 570px;
+        margin:auto;
+      
+      }
+
+       #memes{
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: auto;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+       
+       }
+
+       
+       .imgscrolls{
+         width:auto;
+         height:110px;
+         border: 5px solid #a9bcc0;
+
+       }
+       #selectedimg{
+        width:350px;
+        height:350px;
+        margin-top: 35px;
+        margin-left:50px;
+        background-color: #fff;
+
+       }
+      .selectimg{
+        width:345px;
+        height:345px;
+        border:4px solid #a9bcc0;
+        
+       }
+       .inputbox{
+        margin-left: 60%;
+        margin-top: -40%;
+       }
+
+       #textinput{
+        margin: 10px 0px;
+        height: 30px;
+        border-radius: 6px;
+        width: 300px;
+        outline: none;
+        text-indent: 10px;
+       }
+       .btn{
+        margin-left: 63%;
+        
+        border-radius: 6px;
+       
+       }
+    </style>
+
+   
+</head>
+<body>
+ 
+  <div class="mydiv">
+    <div id="memes">
+
+    </div>
+    <div id="selectedimg">
+      
+    </div>
+    
+    <div class="inputbox"></div>
+    <div class="btn">
+      <button class="generate">Generate</button>
+      <button class="download">Download</button>
+    </div>
+
+  </div>  
+    
+  
+  <script src="jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src = "https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+  
+  <script>
+
+          $(function(){                                      
+                $.get("https://api.imgflip.com/get_memes",function(resp){             
+                    console.log(resp)
+                    if(resp.success){
+                        //console.log(resp.data.memes)
+                        var memes = resp.data.memes;
+                        var data="";
+                        for (const row of memes){       // get value from memes img
+                            data+=`<img class="imgscrolls" src="${row.url}" alt="${row.name}" data-id="${row.id}" data-url="${row.url}" data-name="${row.name}" data-box="${row.box_count}">`    // to get photos
+                        }
+                        $("#memes").html(data)            //to show document / call id memes
+                    }
+                })
+          $(".mydiv").on("click",".imgscrolls",function(){     //get image from scrolls image
+                var id = $(this).data("id");
+                var url = $(this).data("url");
+                var name = $(this).data("name");
+        
+                data = `<img class = "selectimg" data-id = "${id}" data-url = "${url}" data-name = "${name}" src = "${url}">`;    //to show selected img in docunment
+               
+               $("#selectedimg").html(data);      //to diplay photos in box 
+      
+    
+      
+             //text box 
+             var textbox = "";
+                var box = $(this).data("box");
+                for(var i = 0; i < box; i++) {
+                    textbox += `<input type="text" id="textinput"/><br>`;
+                    
+                }
+                console.log(textbox);
+                $(".inputbox").html(textbox);
+              })
+               
+
+            //to generate button
+            $(".generate").on("click", function() {
+                var id = $(".selectimg").data("id");
+                var textbox= $("#textinput");
+                
+                var texts = $.map(textbox, function(response) {//array boxes
+                    return {
+                        text: response.value,
+                    }
+                  
+                });
+                console.log(texts)
+              })
+           $(".btncreate").on("click",function(){
+            $.post("https://api.imgflip.com/caption_image",{
+                template_id: `${id}`,
+                username:"thetpainghtut",
+                password:"Apple!@#",
+                boxes:textinput,
+            }, function(resp){
+                //console.log(resp)
+                if(resp.success){
+                  var image = `<img class = "selectimg" data-url = "${response.data.url}" data-name = "${inputbox}" src = "${response.data.url}" alt = "${inputbox}" width = "500" >`;
+                    $("#selectedimg").html(image)
+                }
+            })
+         })
+                
+       })
+   
+  </script>
+
+
+</body>
+</html>

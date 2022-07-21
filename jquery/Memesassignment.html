@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>memes</title>
 
     <style>
        * {
@@ -96,8 +96,6 @@
     
   
   <script src="jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src = "https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
   
   <script>
 
@@ -125,7 +123,7 @@
       
     
       
-             //text box 
+             // loopping for textbox
              var textbox = "";
                 var box = $(this).data("box");
                 for(var i = 0; i < box; i++) {
@@ -137,18 +135,19 @@
               })
                
 
-            //to generate button
+            //if will click generate button, display texts on image
             $(".generate").on("click", function() {
                 var id = $(".selectimg").data("id");
                 var textbox= $("#textinput");
-                
-                var texts = $.map(textbox, function(response) {//array boxes
+
+                // texts array count
+                var texts = $.map(textbox, function(response) { 
                     return {
                         text: response.value,
                     }
                   
                 });
-                console.log(texts)
+                console.log(texts)  //to show array at console
               })
            $(".btncreate").on("click",function(){
             $.post("https://api.imgflip.com/caption_image",{
@@ -156,9 +155,9 @@
                 username:"thetpainghtut",
                 password:"Apple!@#",
                 boxes:textinput,
-            }, function(resp){
-                //console.log(resp)
-                if(resp.success){
+            }, function(respon){
+                console.log(respon)
+                if(respon.success){
                   var image = `<img class = "selectimg" data-url = "${response.data.url}" data-name = "${inputbox}" src = "${response.data.url}" alt = "${inputbox}" width = "500" >`;
                     $("#selectedimg").html(image)
                 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ios UI Calculator</title>
+    <title>Calculator</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -151,23 +151,23 @@
            return true;
         }
 
-       let showInDisplay = x => {
+       let showInDisplay = x => {        //
     
            if(filter(x)){
            displayBox.innerText += x
           }
         }
 
-       let calc = _ => {
+       let calc = _ => {              // to calculate 
     
             if(!operators.includes(displayBox.innerText[displayBox.innerText.length - 1])){
             displayBox.innerText = eval(displayBox.innerText)
            }
         }
 
-        let clearAll = _ => displayBox.innerText = "";
+        let clearAll = _ => displayBox.innerText = ""; // to all clear 
 
-        let clearLast = _ => displayBox.innerText = displayBox.innerText.substring(0,displayBox.innerText.length-1)
+        let clearLast = _ => displayBox.innerText = displayBox.innerText.substring(0,displayBox.innerText.length-1) //one clear (.substring(0, length))
 
         keyPad.addEventListener("click",_=>{
             if(displayBox.innerText.length>10){
